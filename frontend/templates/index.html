@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedExplain AI — Understand Your Medical Reports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <!-- ── WAKEUP OVERLAY ─────────────────────────────────────────────────── -->
+  <div id="wakeup-overlay">
+    <div class="wu-card">
+      <div class="wu-pulse-ring"></div>
+      <div class="wu-icon">⚕️</div>
+      <h2 class="wu-title">Starting MedExplain AI</h2>
+      <p class="wu-sub">Hosted on Render's free tier — waking up the server.<br/>Usually takes <strong>30–60 seconds</strong>.</p>
+      <div class="wu-bar-track"><div class="wu-bar-fill" id="wu-bar"></div></div>
+      <p class="wu-status" id="wu-status">Connecting to server...</p>
+      <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="wu-demo-btn">▶ Watch demo while you wait</a>
+    </div>
+  </div>
+
+  <!-- ── HEADER ─────────────────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-mark">⚕</span>
+        <span class="logo-text">MedExplain <em>AI</em></span>
+      </div>
+      <nav class="header-nav">
+        <a href="#how-it-works">How it works</a>
+        <a href="#upload-section" class="btn-nav">Analyze Report →</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── HERO ───────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Powered by LLaMA 3 · Free · Private</div>
+      <h1 class="hero-title">
+        Understand your<br/><em>medical reports</em><br/>instantly.
+      </h1>
+      <p class="hero-sub">
+        Upload any blood test, lab report, or health panel PDF.<br/>
+        Get a clear, plain-English explanation in seconds — no medical degree required.
+      </p>
+      <a href="#upload-section" class="btn-hero">Upload your report →</a>
+      <p class="hero-disclaimer">🔒 Your file is never stored. Analyzed and discarded immediately.</p>
+    </div>
+    <div class="hero-visual">
+      <div class="report-card-mock">
+        <div class="mock-header">
+          <span class="mock-dot red"></span>
+          <span class="mock-dot yellow"></span>
+          <span class="mock-dot green"></span>
+          <span class="mock-title">Blood Test Results</span>
+        </div>
+        <div class="mock-row"><span class="mock-label">Hemoglobin</span><span class="mock-val normal">14.2 g/dL ✓</span></div>
+        <div class="mock-row"><span class="mock-label">Glucose</span><span class="mock-val high">112 mg/dL ↑</span></div>
+        <div class="mock-row"><span class="mock-label">Cholesterol</span><span class="mock-val normal">178 mg/dL ✓</span></div>
+        <div class="mock-row"><span class="mock-label">Vitamin D</span><span class="mock-val low">18 ng/mL ↓</span></div>
+        <div class="mock-row"><span class="mock-label">TSH</span><span class="mock-val normal">2.1 mIU/L ✓</span></div>
+        <div class="mock-ai-badge">✨ AI Explained</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ───────────────────────────────────────────────────── -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-inner">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">Three steps to clarity.</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon">📄</div>
+          <h3>Upload PDF</h3>
+          <p>Drop your medical report PDF. Blood tests, panels, imaging reports — any format.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-icon">🧠</div>
+          <h3>AI Analyzes</h3>
+          <p>LLaMA 3 reads every value, compares to reference ranges, and flags what matters.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-icon">💡</div>
+          <h3>Understand Everything</h3>
+          <p>Get a plain-English breakdown, smart doctor questions, and actionable lifestyle tips.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── UPLOAD SECTION ─────────────────────────────────────────────────── -->
+  <section class="upload-section" id="upload-section">
+    <div class="section-inner">
+      <p class="section-label">Start here</p>
+      <h2 class="section-title">Analyze your report.</h2>
+
+      <div class="upload-card" id="upload-card">
+        <!-- Drop Zone -->
+        <div class="drop-zone" id="drop-zone">
+          <div class="drop-icon">📋</div>
+          <p class="drop-title">Drop your medical report here</p>
+          <p class="drop-sub">PDF files only · Max 10 MB</p>
+          <label class="btn-upload" for="file-input">Choose file</label>
+          <input type="file" id="file-input" accept=".pdf" hidden />
+          <p class="file-selected" id="file-name"></p>
+        </div>
+
+        <!-- Options -->
+        <div class="upload-options">
+          <label class="option-label">Response language</label>
+          <select id="language-select" class="lang-select">
+            <option value="English">🇬🇧 English</option>
+            <option value="Hungarian">🇭🇺 Hungarian</option>
+            <option value="German">🇩🇪 German</option>
+            <option value="French">🇫🇷 French</option>
+            <option value="Spanish">🇪🇸 Spanish</option>
+            <option value="Arabic">🇸🇦 Arabic</option>
+            <option value="Turkish">🇹🇷 Turkish</option>
+          </select>
+        </div>
+
+        <button class="btn-analyze" id="analyze-btn" disabled>
+          <span class="btn-text">Analyze Report</span>
+          <span class="btn-spinner" id="btn-spinner" hidden>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="31.4" stroke-dashoffset="10" stroke-linecap="round">
+                <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.8s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+            Analyzing...
+          </span>
+        </button>
+
+        <p class="privacy-note">🔒 Your file is analyzed and immediately discarded. Nothing is stored.</p>
+      </div>
+
+      <!-- Error Box -->
+      <div class="error-box" id="error-box" hidden>
+        <span class="error-icon">⚠️</span>
+        <p id="error-msg"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESULTS SECTION ────────────────────────────────────────────────── -->
+  <section class="results-section" id="results-section" hidden>
+    <div class="section-inner">
+
+      <!-- Results Header -->
+      <div class="results-header">
+        <div>
+          <p class="section-label">Your results</p>
+          <h2 class="section-title" id="results-title">Analysis Complete</h2>
+        </div>
+        <div class="results-meta" id="results-meta"></div>
+      </div>
+
+      <!-- Overall Status Banner -->
+      <div class="status-banner" id="status-banner"></div>
+
+      <!-- Summary -->
+      <div class="result-block">
+        <h3 class="block-title">📋 Plain-English Summary</h3>
+        <p class="summary-text" id="summary-text"></p>
+      </div>
+
+      <!-- Findings Table -->
+      <div class="result-block">
+        <h3 class="block-title">🔬 All Test Results</h3>
+        <div class="findings-table" id="findings-table"></div>
+      </div>
+
+      <!-- Abnormal Flags -->
+      <div class="result-block" id="abnormal-block">
+        <h3 class="block-title">🚨 Values Outside Normal Range</h3>
+        <div class="abnormal-grid" id="abnormal-grid"></div>
+      </div>
+
+      <!-- Doctor Questions -->
+      <div class="result-block">
+        <h3 class="block-title">💬 Questions to Ask Your Doctor</h3>
+        <ul class="questions-list" id="questions-list"></ul>
+      </div>
+
+      <!-- Lifestyle Tips -->
+      <div class="result-block">
+        <h3 class="block-title">🌱 General Wellness Tips</h3>
+        <div class="tips-grid" id="tips-grid"></div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer-box" id="disclaimer-box"></div>
+
+      <!-- Analyze Another -->
+      <div style="text-align:center; margin-top: 48px;">
+        <button class="btn-reset" id="reset-btn">← Analyze Another Report</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="logo-text" style="font-size:1rem;">⚕ MedExplain <em>AI</em></span>
+      <p>Built by <a href="https://rahim-adnan.github.io/" target="_blank">Adnan Rahim</a> · Powered by LLaMA 3 via Groq</p>
+      <p class="footer-note">Not a medical device. For educational purposes only.</p>
+    </div>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
