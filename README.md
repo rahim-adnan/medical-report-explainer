@@ -2,8 +2,6 @@
 
 > Upload any medical report PDF — get a clear, plain-English explanation powered by LLaMA 3.
 
-**Live Demo:** [medical-report-explainer-txk0.onrender.com](https://medical-report-explainer-txk0.onrender.com)
-
 ---
 
 ## What it does
@@ -17,6 +15,12 @@ Most people receive medical reports full of numbers and abbreviations they don't
 - 💬 **Generates** smart questions to ask your doctor
 - 🌱 **Suggests** actionable wellness tips relevant to your results
 - 🌍 **Responds in 7 languages** — English, Hungarian, German, French, Spanish, Arabic, Turkish
+
+---
+
+## Try it out
+
+Don't have a report handy? Download a sample: [sample_blood_test.pdf](samples/sample_blood_test.pdf)
 
 ---
 
