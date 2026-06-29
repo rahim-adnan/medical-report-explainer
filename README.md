@@ -2,6 +2,8 @@
 
 > Upload any medical report PDF — get a clear, plain-English explanation powered by LLaMA 3.
 
+**Live Demo:** [medical-report-explainer-txk0.onrender.com](https://medical-report-explainer-txk0.onrender.com)
+
 ---
 
 ## What it does
@@ -11,6 +13,7 @@ Most people receive medical reports full of numbers and abbreviations they don't
 - 📄 **Upload** any blood test, lab panel, or medical report PDF
 - 🧠 **AI analyzes** every value against reference ranges using LLaMA 3
 - 🚦 **Flags** what's normal, low, high, or critical — color-coded at a glance
+- 📊 **Visual range bars** — see exactly where each value sits relative to normal
 - 💬 **Generates** smart questions to ask your doctor
 - 🌱 **Suggests** actionable wellness tips relevant to your results
 - 🌍 **Responds in 7 languages** — English, Hungarian, German, French, Spanish, Arabic, Turkish
@@ -20,11 +23,12 @@ Most people receive medical reports full of numbers and abbreviations they don't
 ## Tech Stack
 
 | Layer     | Technology |
-|-----------|-----------|
+|-----------|------------|
 | Backend   | Python · Flask |
 | AI        | LLaMA 3 70B via Groq API (free) |
 | PDF       | PyMuPDF (fitz) |
 | Frontend  | Vanilla HTML · CSS · JavaScript |
+| Hosting   | Render (free tier) |
 
 ---
 
