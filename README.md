@@ -2,8 +2,6 @@
 
 > Upload any medical report PDF — get a clear, plain-English explanation powered by LLaMA 3.
 
-**[Demo Video](YOUR_YOUTUBE_URL_HERE)**
-
 ---
 
 ## What it does
