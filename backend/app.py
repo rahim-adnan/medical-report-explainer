@@ -11,7 +11,6 @@ Endpoints:
 import os
 import sys
 
-# Make sure backend/ is on the path so imports work
 sys.path.insert(0, os.path.dirname(__file__))
 
 from flask import Flask, request, jsonify, send_from_directory
